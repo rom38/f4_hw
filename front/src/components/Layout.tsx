@@ -1,0 +1,20 @@
+import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import style from "../styles/Layout.module.css";
+
+export const Layout = () => {
+    const classAcive = ({ isActive }: { isActive: boolean }) => isActive ? style.active : "";
+
+    return (<>
+        <header>
+            <NavLink to="/" className={classAcive}>Home</NavLink>
+            <NavLink to="/posts" className={classAcive}>Blog</NavLink>
+            <NavLink to="/about" className={classAcive}>About</NavLink>
+        </header>
+        <Outlet />
+        <footer>2023</footer>
+    </>
+    )
+}
+
