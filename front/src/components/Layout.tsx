@@ -11,6 +11,9 @@ export const Layout = () => {
             <NavLink to="/" className={classAcive}>Home</NavLink>
             <NavLink to="/posts" className={classAcive}>Blog</NavLink>
             <NavLink to="/about" className={classAcive}>About</NavLink>
+            <NavLink to="/categories" className={classAcive}>Category_test</NavLink>
+            <NavLink to="/dish" className={classAcive}>Dish_test</NavLink>
+
         </header>
         <Outlet />
         <footer>2023</footer>
