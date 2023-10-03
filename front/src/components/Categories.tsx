@@ -1,5 +1,10 @@
+import { useEffect, useState } from "react"
 import { NavLink } from "react-router-dom"
 const Categories = () => {
+    interface TCateg {
+        category: string;
+    }
+    const [categoryData, setCategoryData] = useState<[TCateg]>([{ category: "" }]);
     const test_data = {
         "id": "15",
         "name": "Greek Salad",
@@ -11,11 +16,20 @@ const Categories = () => {
         "Salade",
         "Main",
         "Dessert"]
+    useEffect(() => {
+        fetch("/api/categories/")
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                return setCategoryData(data)
+            })
+    }, [])
 
     return (
         <div>
             <h2>Categories: </h2>
-            {test_data_c.map((category)=><h3>{category}</h3> )}
+            {/* {test_data_c.map((category) => <h3>{category}</h3>)} */}
+            {categoryData.map((item) => <h3>{item.category}</h3>)}
 
         </div>
     )
