@@ -4,13 +4,13 @@ from .models import Category
 from .models import Recipie
 
 
-class CategorySerializer(serializers.HyperlinkedModelSerializer):
+class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = ['category']
+        fields = ['id', 'category','recipies']
 
 
-class RecipieSerializer(serializers.HyperlinkedModelSerializer):
+class RecipieSerializer(serializers.ModelSerializer):
     class Meta:
         model = Recipie
         fields = ['name', 'source', 'instructions', 'category']

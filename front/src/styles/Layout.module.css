@@ -23,3 +23,15 @@ header>a:hover {
     color: blueviolet;
     cursor: default;
 }
+
+footer {
+    color: white;
+    padding: 1%;
+    background: black;
+    font-size: 1rem;
+    height: 40px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: auto;
+}

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import style from "../styles/Layout.module.css";
@@ -16,7 +16,7 @@ export const Layout = () => {
 
         </header>
         <Outlet />
-        <footer>2023</footer>
+        <footer><h2>2023 by RomaN</h2></footer >
     </>
     )
 }

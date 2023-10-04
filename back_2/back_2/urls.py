@@ -22,18 +22,26 @@ from rest_framework import routers
 from dish.views import CategoryViewSet
 from dish.views import RecipieViewSet
 
+from rest_framework.schemas import get_schema_view
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
 ]
 
+
 router = routers.DefaultRouter()
-router.register(r'categories', CategoryViewSet)
-router.register(r'recipies', RecipieViewSet)
+router.register(r"categories", CategoryViewSet)
+router.register(r"recipies", RecipieViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path("admin/", admin.site.urls),
+    path("api/", include(router.urls)),
+    path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
+    path(
+        "openapi/",
+        get_schema_view(title="Your Project", description="API for all things …"),
+        name="openapi-schema",
+    ),
 ]
