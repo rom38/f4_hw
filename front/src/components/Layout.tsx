@@ -13,6 +13,7 @@ export const Layout = () => {
             <NavLink to="/about" className={classAcive}>About</NavLink>
             <NavLink to="/categories" className={classAcive}>Category_test</NavLink>
             <NavLink to="/dish" className={classAcive}>Dish_test</NavLink>
+            <NavLink to="/swagger" className={classAcive}>Swagger</NavLink>
 
         </header>
         <Outlet />

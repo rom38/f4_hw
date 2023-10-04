@@ -40,7 +40,7 @@ urlpatterns = [
     path("api/", include(router.urls)),
     path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
     path(
-        "openapi/",
+        "api/openapi/",
         get_schema_view(title="Your Project", description="API for all things …"),
         name="openapi-schema",
     ),
