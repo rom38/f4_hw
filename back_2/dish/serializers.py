@@ -7,10 +7,10 @@ from .models import Recipie
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = ['id', 'category','recipies']
+        fields = ["id", "category", "recipies"]
 
 
 class RecipieSerializer(serializers.ModelSerializer):
     class Meta:
         model = Recipie
-        fields = ['name', 'source', 'instructions', 'category']
+        fields = ["id", "name", "source", "instructions", "category"]

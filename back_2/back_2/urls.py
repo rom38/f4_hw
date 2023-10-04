@@ -41,7 +41,9 @@ urlpatterns = [
     path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
     path(
         "api/openapi/",
-        get_schema_view(title="Your Project", description="API for all things …"),
+        get_schema_view(
+            title="My FOOD project", description="API for dish categories and recipies"
+        ),
         name="openapi-schema",
     ),
 ]

@@ -11,6 +11,7 @@ import { Layout } from "./Layout";
 import Categories from "./Categories";
 import SwaggerUIWidget from "./SwaggerUIWidget";
 import Dish from "./Dish";
+import CategoryDishes from "./CategoryDishes";
 
 function App() {
     return (
@@ -26,6 +27,7 @@ function App() {
 
                     <Route path="about" element={<AboutPage />} />
                     <Route path="swagger" element={<SwaggerUIWidget />} />
+                    <Route path="list-dishes/:id" element={<CategoryDishes />} />
 
                     <Route path="*" element={<NotFoundPage />} />
                 </Route>
