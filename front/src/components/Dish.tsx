@@ -1,5 +1,5 @@
 const Dish = () => {
-    const test_data = {
+    const dishData = {
         "id": "15",
         "name": "Greek Salad",
         "source": "Food Network (two different recipes)",
@@ -8,11 +8,11 @@ const Dish = () => {
     }
     return (
         <div>
-            <h2>Category: {test_data.category}</h2>
-            <h3>Dish name: {test_data.name} </h3>
+            <h2>Category: {dishData.category}</h2>
+            <h3>Dish name: {dishData.name} </h3>
             <div>
                 <h4>Dish recipe: </h4>
-                <p> {test_data.instructions} </p>
+                <p> {dishData.instructions} </p>
             </div>
         </div>
     )
