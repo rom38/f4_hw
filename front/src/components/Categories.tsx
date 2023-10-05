@@ -34,7 +34,8 @@ const Categories = () => {
             {categoryData.map((item) =>
                 <>
                     <h3>{item.category}</h3>
-                    <Link to={`/list-dishes/${item.id}`} state={item}>ссылка</Link>
+                    <Link to={`/list-dishes/${item.id}`}>ссылка</Link>
+                    {/* <Link to={`/list-dishes/${item.id}`} state={item}>ссылка</Link> */}
                 </>
             )
             }
