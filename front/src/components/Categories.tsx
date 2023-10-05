@@ -35,7 +35,7 @@ const Categories = () => {
             <ol>
                 {categoryData.map((item) =>
                     <>
-                        <h3><li> <Link to={`/list-dishes/${item.id}`}>{item.category}</Link></li></h3>
+                        <h3><li key={item.id}> <Link to={`/list-dishes/${item.id}`}>{item.category}</Link></li></h3>
                     </>
                 )}
             </ol>
