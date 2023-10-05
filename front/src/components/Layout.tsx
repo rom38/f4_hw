@@ -8,11 +8,8 @@ export const Layout = () => {
 
     return (<>
         <header>
-            <NavLink to="/" className={classAcive}>Home</NavLink>
-            <NavLink to="/posts" className={classAcive}>Blog</NavLink>
+            <NavLink to="/" className={classAcive}>Dish Categories</NavLink>
             <NavLink to="/about" className={classAcive}>About</NavLink>
-            <NavLink to="/categories" className={classAcive}>Category_test</NavLink>
-            <NavLink to="/dish" className={classAcive}>Dish_test</NavLink>
             <NavLink to="/swagger" className={classAcive}>Swagger</NavLink>
 
         </header>
