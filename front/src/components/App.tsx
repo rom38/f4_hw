@@ -21,13 +21,14 @@ function App() {
                     <Route index element={<HomePage />} />
                     <Route path="posts" element={<BlogPage />} />
                     <Route path="categories" element={<Categories />} />
-                    <Route path="dish" element={<Dish />} />
+                    {/* <Route path="dish" element={<Dish />} /> */}
 
                     <Route path="posts/:id" element={<SinglePage />} />
 
                     <Route path="about" element={<AboutPage />} />
                     <Route path="swagger" element={<SwaggerUIWidget />} />
                     <Route path="list-dishes/:id" element={<CategoryDishes />} />
+                    <Route path="dish/:idDish" element={<Dish />} />
 
                     <Route path="*" element={<NotFoundPage />} />
                 </Route>

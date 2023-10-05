@@ -66,7 +66,7 @@ const CategoryDishes = () => {
         const controller = new AbortController();
         const { signal } = controller;
         async function fetchDataDishes() {
-            if (dishesListIds.length > 0) {
+            if (dishesListIds && dishesListIds.length > 0) {
                 try {
                     const tmpCategoryDishesData: TCategoryDishes[] = await Promise.all(dishesListIds.map((id: string) =>
                         fetch(`/api/recipies/${id}`, { signal }).then(res => res.json())
@@ -86,23 +86,24 @@ const CategoryDishes = () => {
     }, [dishesListIds]);
 
 
+    if (categoryDishesData) {
+        return (
+            <div>
+                <h2>Dish category: {categoryDish}</h2>
+                {/* <p>{categoryDishesData[0].name}</p> */}
+                <ul>
+                    {categoryDishesData.map((item) =>
+                        <li key={item.id}>
+                            <h3 ><Link to={`/dish/${item.id}`}>{item.name}</Link></h3>
+                        </li>
+                    )
+                    }
+                </ul>
 
-    return (
-        <div>
-            <h2>Dish category: {categoryDish}</h2>
-            {/* <p>{categoryDishesData[0].name}</p> */}
-            <ul>
-                {categoryDishesData.map((item) =>
-                    <li key={item.id}>
-                        <h3 >{item.name}</h3>
-                        {/* <Link to={`/list-dishes/${item.id}`}>ссылка</Link> */}
-                    </li>
-                )
-                }
-            </ul>
-
-        </div>
-    )
+            </div>
+        )
+    }
+    else return (<div>Loading...</div>)
 }
 
 export default CategoryDishes
