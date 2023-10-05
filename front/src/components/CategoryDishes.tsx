@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
-import { NavLink } from "react-router-dom"
 import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import style from "../styles/CategoryDishes.module.css"
 
 const CategoryDishes = () => {
     interface TCategoryDishes {
@@ -20,6 +20,7 @@ const CategoryDishes = () => {
     }
     // let { state } = useLocation();
     const { id } = useParams();
+    const navigate = useNavigate();
 
 
     // console.log("state", state);
@@ -89,6 +90,7 @@ const CategoryDishes = () => {
     if (categoryDishesData) {
         return (
             <div>
+                <button onClick={() => navigate(-1)} className={style.buttonback}>go back</button>
                 <h2>Dish category: {categoryDish}</h2>
                 {/* <p>{categoryDishesData[0].name}</p> */}
                 <ul>
@@ -99,6 +101,7 @@ const CategoryDishes = () => {
                     )
                     }
                 </ul>
+
 
             </div>
         )
