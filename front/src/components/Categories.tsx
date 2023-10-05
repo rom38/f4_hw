@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import { NavLink } from "react-router-dom"
 import { Link } from "react-router-dom";
 const Categories = () => {
     interface TCateg {
@@ -7,15 +6,28 @@ const Categories = () => {
         id: string | null;
         recipies: Array<number> | null
     }
-    const [categoryData, setCategoryData] = useState<[TCateg]>([{ category: null, id: null, recipies: null }]);
+    const [categoryData, setCategoryData] = useState<TCateg[]>([{ category: null, id: null, recipies: null }]);
+
     useEffect(() => {
-        fetch("/api/categories/")
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                return setCategoryData(data)
-            })
-    }, [])
+        const controller = new AbortController();
+        const { signal } = controller;
+        async function fetchCategoryList() {
+            try {
+                const tmpCategoryData: TCateg[] = await fetch(`/api/categories/`, { signal })
+                    .then(res => res.json());
+                setCategoryData(tmpCategoryData);
+            } catch (error) {
+                console.log("fetch_error", error);
+            }
+        }
+
+        fetchCategoryList();
+
+        return () => {
+            controller.abort();
+        };
+
+    }, []);
 
     return (
         <div>
@@ -25,10 +37,8 @@ const Categories = () => {
                     <>
                         <h3><li> <Link to={`/list-dishes/${item.id}`}>{item.category}</Link></li></h3>
                     </>
-                )
-                }
+                )}
             </ol>
-
         </div>
     )
 }

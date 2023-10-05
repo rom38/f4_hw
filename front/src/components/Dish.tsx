@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+import style from "../styles/CategoryDishes.module.css"
 
 const Dish = () => {
 
+    const navigate = useNavigate();
     interface TCategoryDishes {
         id: string | null;
         name: string | null;
@@ -34,7 +38,7 @@ const Dish = () => {
     if (dishData) {
         return (
             <div>
-
+                <button onClick={() => navigate(-1)} className={style.buttonback}>go back</button>
                 <h3>Dish name: {dishData.name} </h3>
                 <div>
                     <h4>Dish recipe: </h4>
